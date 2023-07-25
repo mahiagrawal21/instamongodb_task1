@@ -30,6 +30,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const secretKey: string = "s1h2a3";
+    // token=jwt.sign({mahi:"Mahi"},"s1h2a3")
+
 export const loginController = async (req: Request, res: Response) => {
   try {
     const newUser = req.body;
@@ -39,6 +42,8 @@ export const loginController = async (req: Request, res: Response) => {
       name: req.body.name,
       password: req.body.password
     });
+    
+    
 
     if (!savedUser) {
       // If the user is not found, return an error response
@@ -47,8 +52,7 @@ export const loginController = async (req: Request, res: Response) => {
     }    token = jwt.sign(JSON.stringify(savedUser), secretKey);
 
 
-    const secretKey: string = "s1h2a3";
-    // token=jwt.sign({mahi:"Mahi"},"s1h2a3")
+    
 
     res.end(token);
   } catch (error) {
