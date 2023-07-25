@@ -1,7 +1,11 @@
 //Mongoose model for a collection --> Follower
 
 import mongoose, { Document, Schema } from 'mongoose';
-
+export enum statusEnum {
+    accepted= "accepted",
+    rejected="rejected",
+    pending="pending",
+  }
 interface Follower extends Document {
     sender_id: number;
     receiver_id: number;

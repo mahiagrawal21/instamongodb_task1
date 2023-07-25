@@ -2,6 +2,12 @@
 
 import mongoose, { Document, Schema } from 'mongoose';
 
+
+export enum typrEnum {
+    like="like",
+    comment="comment"
+  }
+
 interface Action extends Document {
     action_type: String;
     user_id: number;

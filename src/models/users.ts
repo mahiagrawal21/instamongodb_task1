@@ -2,7 +2,7 @@
 
 import mongoose, { Document, Schema } from 'mongoose';
 
-interface User extends Document {
+export interface User extends Document {
   user_id:number;
   username: string;
   email: string;
