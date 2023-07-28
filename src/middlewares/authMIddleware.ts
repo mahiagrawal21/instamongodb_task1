@@ -37,3 +37,12 @@ export const validateUser=(req:Request,res:Response,next: () => void)=>{
         next();
     }
 }
+
+export const loginCridentials=(req:Request,res:Response,next:()=>void)=>{
+    const isValid=Joi.object({
+      name:Joi.string().required(),
+      password:Joi.string().min(8).required()
+    })
+    let result=isValid.validate(req.body)
+    result.error?res.status(400).send(result):next();
+}

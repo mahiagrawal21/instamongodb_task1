@@ -6,17 +6,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 //controller
-const loginController_1 = require("../controllers/loginController");
+const logoutController_1 = require("../controllers/logoutController");
 /**
  * @swagger
- * /auth/signin:
- *   post:
- *     description: Allow user to login
+ * /auth/logout:
+ *   patch:
+ *     description: Allow user to logout
  *     responses:
  *       200:
  *         description: Success
  *
  */
-router.post('/signin', loginController_1.loginController);
+router.patch('/logout', logoutController_1.logoutController);
 exports.default = router;
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=logout.js.map
